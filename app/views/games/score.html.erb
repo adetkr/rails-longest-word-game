@@ -1,0 +1,17 @@
+<h1>Result</h1>
+
+<% if @result[:message] == "well done"  %>
+  <p> <strong>Congratulations! </strong> <%= params["word_submitted"].upcase %> is a valid english word!</p>
+<% end %>
+
+<% if @result[:message] == "not an english word"  %>
+  <p> Sorry but <strong> <%= params["word_submitted"].upcase %> </strong>  does not seem to be a valid English word...</p>
+<% end %>
+
+<% if @result[:message] == "not in the grid"  %>
+  <p> Sorry but <strong> <%= params["word_submitted"].upcase %> </strong>  can't be built out of <%= params["random_letters"].split("").join(",") %></p>
+<% end %>
+
+<br>
+
+<%= link_to "Play again", new_path %>
